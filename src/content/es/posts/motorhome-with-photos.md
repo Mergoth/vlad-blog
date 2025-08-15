@@ -1,3 +1,11 @@
+---
+title: "Viaje en Autocaravana: Experiencia de Tres Familias"
+description: "Experiencia de tres familias viajando en autocaravana por Portugal: alquiler, aparcamientos, consejos y lugares favoritos"
+date: 2025-08-16
+draft: false
+id: motorhome-with-photos
+---
+
 # Viaje en Autocaravana: Experiencia de Tres Familias
 
 Hace tres años decidimos con otras dos familias pasar nuestras vacaciones juntos durante **Semana Santa**, a finales de marzo - principios de abril, durante una semana, en autocaravanas. Elegimos autocaravanas debido a la infraestructura bien desarrollada para ellas en España y la amplia experiencia de los turistas europeos. Elegimos nuestra ruta hacia **Portugal**, la costa sur y oeste, en la región del Algarve.
@@ -15,6 +23,11 @@ El día antes de la salida, acordamos recoger las casas antes. Salvador realizó
 
 El **refrigerador** funcionaba con gas, electricidad externa o generador mientras conducía. Un tanque de agua lleno aumentaba el peso a 3,5 toneladas, requiriendo licencia de categoría de camión, que no teníamos, así que conducimos con el tanque medio lleno.
 
+Dentro cabe muchísimas cosas — en los tres viajes **nunca usamos todos los espacios de almacenamiento**. **Consejo:** lleva todo lo que pueda ser útil, y definitivamente pon en el maletero:
+- parrilla portátil (ideal para pescado y filetes junto al océano);
+- cubo plegable o cesta para llevar y lavar platos;
+- tendedero araña o al menos cuerda resistente para ropa — trajes de baño y toallas se secan instantáneamente con el viento oceánico.
+
 > **Referencia:** Para autocaravanas de hasta 3,5 toneladas en España, la licencia de categoría B es suficiente. Límites de velocidad: 50/90/100 km/h (ciudad/carreteras/autopistas).
 
 ## Primeras Impresiones y Manejo de la Autocaravana
@@ -22,6 +35,8 @@ El **refrigerador** funcionaba con gas, electricidad externa o generador mientra
 Inicialmente fue **difícil acostumbrarse a conducir una autocaravana**. Es grande y pesada, acelera más lento, frena más tiempo y mantiene peor la velocidad. En un coche puedes conducir cómodamente a 120 km/h, pero en una autocaravana por encima de 100 km/h puede ser incómodo - la cabina empieza a vibrar. En nuestro último viaje tuvimos una autocaravana nueva, y 120 km/h se sintió normal.
 
 Conducir una autocaravana es un arte separado. Inicialmente cada giro, cada aparcamiento requiere máxima concentración. La cámara trasera ayuda, pero las dimensiones siguen siendo desconocidas. Pero después de un par de días te sientes como un capitán de barco - conoces cada crujido, cada sonido de tu hogar temporal.
+
+![Aparcamiento en el bosque](/images/motorhome/forest_parking.jpg)
 
 ## Costo del Viaje
 

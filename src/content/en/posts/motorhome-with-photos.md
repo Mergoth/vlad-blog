@@ -1,3 +1,11 @@
+---
+title: "Motorhome Travel: Three Families' Experience"
+description: "Experience of three families traveling by motorhome through Portugal: rental, parking spots, tips and favorite places"
+date: 2025-08-16
+draft: false
+id: motorhome-with-photos
+---
+
 # Motorhome Travel: Three Families' Experience
 
 Three years ago, we decided with two other families to spend our vacation together during **Semana Santa**, at the end of March - beginning of April, for a week, in motorhomes. We chose motorhomes because of the well-developed infrastructure for them in Spain and the extensive experience of European tourists. We chose our route towards **Portugal**, the southern and western coast, in the Algarve region.
@@ -15,6 +23,11 @@ The day before departure, we arranged to pick up the homes earlier. Salvador con
 
 The **refrigerator** worked on gas, external electricity or generator while driving. A full water tank increased the weight to 3.5 tons, requiring truck category license, which we didn't have, so we drove with a half-full tank.
 
+Inside fits a lot of things — in all three trips we **never used all storage spaces**. **Tip:** take everything that might be useful, and definitely put in the trunk:
+- portable grill (ideal for fish and steaks by the ocean);
+- collapsible bucket or basket for carrying and washing dishes;
+- spider dryer or at least strong clothesline — swimsuits and towels dry instantly in ocean wind.
+
 > **Reference:** For motorhomes up to 3.5 tons in Spain, category B license is sufficient. Speed limits: 50/90/100 km/h (city/roads/highways).
 
 ## First Impressions and Motorhome Handling
@@ -22,6 +35,8 @@ The **refrigerator** worked on gas, external electricity or generator while driv
 Initially it was **difficult to get used to driving a motorhome**. It's big and heavy, accelerates slower, brakes longer and holds speed worse. In a car you can comfortably drive 120 km/h, but in a motorhome above 100 km/h can be uncomfortable - the cabin starts rattling. On our last trip we had a new motorhome, and 120 km/h felt normal.
 
 Driving a motorhome is a separate art. Initially every turn, every parking requires maximum concentration. The rear camera helps, but the dimensions are still unfamiliar. But after a couple of days you feel like a ship captain - you know every creak, every sound of your temporary home.
+
+![Forest parking](/images/motorhome/forest_parking.jpg)
 
 ## Trip Cost
 
@@ -68,7 +83,7 @@ Another favorite parking - on the southern coast, **Salema Eco Camp**. Eco-campi
 
 Motorhome autonomy allows **easily staying 1–2 nights at wild parkings without connecting to services**. Solar panels on the roof provide electricity for lighting and device charging, although demanding phones sometimes require connection to electricity at civilized parkings.
 
-You only need to monitor **water consumption** - shower and dishwashing use a lot of water, but generally it's enough. We tried to stay fresh on wild parkings the first night, and after a long stop of 2–3 nights at a civilized parking you can safely spend another night at a wild one.
+You only need to monitor **water consumption** — shower and dishwashing use a lot of water, but generally it's enough. We tried to stay fresh on wild parkings the first night, and after a long stop of 2–3 nights at a civilized parking you can safely spend another night at a wild one.
 
 Wild parking advantages: **free and scenic**, often right by the sea or in pine forest, with short access to ocean. Minus: can't fully use camping amenities - awnings, furniture and barbecue. We did everything quietly, cleaned up at night and looked like ordinary parked vehicles.
 
