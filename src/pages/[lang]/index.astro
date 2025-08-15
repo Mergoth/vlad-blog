@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro'
+import PostCard from '../../components/PostCard'
+import { getCollection } from 'astro:content'
+
+export function getStaticPaths() {
+  const locales = ['en','es','ru'] as const
+  return locales.map((lang) => ({ params: { lang } }))
+}
+
+const allowed = ['en','es','ru'] as const
+const lang = (Astro.params.lang ?? 'en') as typeof allowed[number]
+let ok = false; for (const a of allowed) { if (a === lang) { ok = true; break } }
+if (!ok) {
+  return Astro.redirect(`/${allowed[0]}`, 302)
+}
+
+const posts = (await getCollection(lang))
+  .filter((e) => e.slug.startsWith('posts/') && !e.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+const alternates = allowed.map((l) => ({ lang: l, path: `/${l}` }))
+
+const pageTitle = lang === 'ru' ? 'Блог' : lang === 'es' ? 'Blog' : 'Blog'
+const heroText = {
+  en: { title: 'Welcome to Vlad Blog', subtitle: 'Thoughts, ideas, and stories from around the world' },
+  es: { title: 'Bienvenido a Vlad Blog', subtitle: 'Pensamientos, ideas e historias de todo el mundo' },
+  ru: { title: 'Добро пожаловать в Vlad Blog', subtitle: 'Мысли, идеи и истории со всего мира' }
+}[lang]
+---
+<Base lang={lang} title={pageTitle} alternates={alternates}>
+  <div class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        {heroText.title}
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        {heroText.subtitle}
+      </p>
+    </div>
+  </div>
+  
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    {posts.length > 0 ? (
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => {
+          const shortSlug = post.slug.replace(/^posts\//, '')
+          return (
+            <PostCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              slug={shortSlug}
+              lang={lang}
+              client:load
+            />
+          )
+        })}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-gray-500 text-lg">
+          {lang === 'ru' ? 'Пока нет постов' : lang === 'es' ? 'No hay publicaciones aún' : 'No posts yet'}
+        </p>
+      </div>
+    )}
+  </div>
+</Base>

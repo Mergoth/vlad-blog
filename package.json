@@ -1,0 +1,30 @@
+{
+  "name": "vlad-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check:fm": "node scripts/fm-enforce.mjs",
+    "i18n:install": "astro-i18n install",
+    "i18n:pages": "astro-i18n generate:pages --purge",
+    "i18n:types": "astro-i18n generate:types"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "astro": "^5.13.2",
+    "astro-i18n": "^2.2.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@astrojs/netlify": "^6.5.7"
+  }
+}

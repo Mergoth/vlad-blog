@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro'
+---
+
+<Base lang="en" title="Vlad Blog">
+  <div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <div class="bg-white rounded-2xl shadow-xl p-12">
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">Vlad Blog</h1>
+        <p class="text-xl text-gray-600 mb-12">Choose your language / Elige tu idioma / Выберите язык</p>
+        
+        <div class="grid gap-4 md:grid-cols-3">
+          <a href="/en" class="group bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-6 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+            <div class="flex flex-col items-center">
+              <span class="text-3xl mb-2">🇺🇸</span>
+              <span>English</span>
+            </div>
+          </a>
+          
+          <a href="/es" class="group bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-6 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+            <div class="flex flex-col items-center">
+              <span class="text-3xl mb-2">🇪🇸</span>
+              <span>Español</span>
+            </div>
+          </a>
+          
+          <a href="/ru" class="group bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-6 rounded-xl font-semibold text-lg hover:from-red-600 hover:to-red-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+            <div class="flex flex-col items-center">
+              <span class="text-3xl mb-2">🇷🇺</span>
+              <span>Русский</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

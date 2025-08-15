@@ -1,0 +1,60 @@
+---
+import Header from '../components/Header'
+
+interface Props {
+  title?: string
+  description?: string
+  lang?: 'en' | 'es' | 'ru'
+  path?: string
+  alternates?: { lang: 'en' | 'es' | 'ru'; path: string }[]
+}
+
+const {
+  title = 'Vlad Blog',
+  description = '',
+  lang = 'en',
+  path = Astro.url?.pathname ?? '/',
+  alternates,
+} = Astro.props as Props
+
+const SITE = Astro.site ? String(Astro.site) : ''
+const LOCALES: Props['lang'][] = ['en', 'es', 'ru']
+const hrefLangs = (alternates ?? LOCALES.map(l => ({ lang: l, path }))).map(({ lang, path }) => ({
+  hreflang: lang,
+  href: SITE ? new URL(path, SITE).toString() : path,
+}))
+const canonical = SITE ? new URL(path, SITE).toString() : undefined
+---
+<html lang={lang} class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {(() => {
+      const og = `${SITE || ''}/og/${encodeURIComponent(title)}.svg`
+      return <meta property="og:image" content={og} />
+    })()}
+    <meta name="twitter:card" content="summary_large_image" />
+    {hrefLangs.map(({ href, hreflang }) => (
+      <link rel="alternate" href={href} hreflang={hreflang} />
+    ))}
+    <link rel="alternate" href={canonical ?? path} hreflang="x-default" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="h-full bg-gray-50">
+    <Header lang={lang} client:load />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <footer class="bg-white border-t mt-16">
+      <div class="max-w-4xl mx-auto px-4 py-8 text-center text-gray-600">
+        <p>&copy; 2024 Vlad Blog. Built with Astro & React.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+# CASCADE_HINT: Minimal robots
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml

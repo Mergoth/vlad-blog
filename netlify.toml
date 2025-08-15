@@ -1,0 +1,9 @@
+# CASCADE_HINT: Minimal Netlify config for static Astro + Edge redirect
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Edge redirect from root "/" to best locale
+[[edge_functions]]
+  function = "locale-redirect"
+  path = "/"
