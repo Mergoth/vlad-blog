@@ -28,6 +28,8 @@ Inside fits a lot of things — in all three trips we **never used all storage s
 - collapsible bucket or basket for carrying and washing dishes;
 - spider dryer or at least strong clothesline — swimsuits and towels dry instantly in ocean wind.
 
+![Dryer](/images/motorhome/motorhome_dryer.jpg)
+
 > **Reference:** For motorhomes up to 3.5 tons in Spain, category B license is sufficient. Speed limits: 50/90/100 km/h (city/roads/highways).
 
 ## First Impressions and Motorhome Handling
@@ -36,7 +38,7 @@ Initially it was **difficult to get used to driving a motorhome**. It's big and 
 
 Driving a motorhome is a separate art. Initially every turn, every parking requires maximum concentration. The rear camera helps, but the dimensions are still unfamiliar. But after a couple of days you feel like a ship captain - you know every creak, every sound of your temporary home.
 
-![Forest parking](/images/motorhome/forest_parking.jpg)
+![At the parking](/images/motorhome/tents.jpg)
 
 ## Trip Cost
 
@@ -76,6 +78,8 @@ Especially want to highlight one parking on the western shore among **eucalyptus
 Another favorite parking - on the southern coast, **Salema Eco Camp**. Eco-camping suitable for tents and motorhomes, has ready-made houses in Indian style. They conduct yoga workshops, children's playground in the form of a ship, restaurant with terrace where you can watch playing children. Minus: road to the beach is not very convenient - either along the road without sidewalk, or long walk.
 
 ![Salema Eco Camp - eco-camping on the southern coast](/images/motorhome/salema.jpg)
+
+![Salema Eco Camp - children's playground in the shape of a ship](/images/motorhome/salema_playground.jpg)
 
 > **Reference:** Salema Eco Camp - 16 hectares in nature park, prices 16–27 € per night, services: yoga, surfing, playgrounds.
 

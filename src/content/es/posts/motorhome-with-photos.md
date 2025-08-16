@@ -28,6 +28,8 @@ Dentro cabe muchísimas cosas — en los tres viajes **nunca usamos todos los es
 - cubo plegable o cesta para llevar y lavar platos;
 - tendedero araña o al menos cuerda resistente para ropa — trajes de baño y toallas se secan instantáneamente con el viento oceánico.
 
+![Tendedero](/images/motorhome/motorhome_dryer.jpg)
+
 > **Referencia:** Para autocaravanas de hasta 3,5 toneladas en España, la licencia de categoría B es suficiente. Límites de velocidad: 50/90/100 km/h (ciudad/carreteras/autopistas).
 
 ## Primeras Impresiones y Manejo de la Autocaravana
@@ -36,7 +38,7 @@ Inicialmente fue **difícil acostumbrarse a conducir una autocaravana**. Es gran
 
 Conducir una autocaravana es un arte separado. Inicialmente cada giro, cada aparcamiento requiere máxima concentración. La cámara trasera ayuda, pero las dimensiones siguen siendo desconocidas. Pero después de un par de días te sientes como un capitán de barco - conoces cada crujido, cada sonido de tu hogar temporal.
 
-![Aparcamiento en el bosque](/images/motorhome/forest_parking.jpg)
+![En el aparcamiento](/images/motorhome/tents.jpg)
 
 ## Costo del Viaje
 
@@ -76,6 +78,8 @@ Especialmente quiero destacar un aparcamiento en la costa oeste entre **eucalipt
 Otro aparcamiento favorito - en la costa sur, **Salema Eco Camp**. Eco-camping adecuado para tiendas y autocaravanas, tiene casas listas en estilo indio. Realizan talleres de yoga, parque infantil en forma de barco, restaurante con terraza donde puedes ver niños jugando. Menos: el camino a la playa no es muy conveniente - o a lo largo de la carretera sin acera, o caminar largo tiempo.
 
 ![Salema Eco Camp - eco-camping en la costa sur](/images/motorhome/salema.jpg)
+
+![Salema Eco Camp - parque infantil en forma de barco](/images/motorhome/salema_playground.jpg)
 
 > **Referencia:** Salema Eco Camp - 16 hectáreas en parque natural, precios 16–27 € por noche, servicios: yoga, surf, parques infantiles.
 
