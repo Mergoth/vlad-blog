@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import { remarkPhotoCarousel } from './src/utils/remark-photo-carousel.mjs';
 
 // CASCADE_HINT: Keep config minimal; middleware auto-loads from src/middleware.ts
 // CASCADE_TODO: Set your deployed site URL (used for canonical URLs)
@@ -14,4 +15,7 @@ export default defineConfig({
   site: 'https://vlad-blog.netlify.app', // CASCADE: Netlify auto-domain placeholder
   adapter: netlify(),
   integrations: [react(), tailwind()],
+  markdown: {
+    remarkPlugins: [remarkPhotoCarousel],
+  },
 });

@@ -13,6 +13,7 @@
     "i18n:types": "astro-i18n generate:types"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.5",
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.16",
@@ -20,9 +21,12 @@
     "@types/react-dom": "^19.1.7",
     "astro": "^5.13.2",
     "astro-i18n": "^2.2.4",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@astrojs/netlify": "^6.5.7"
