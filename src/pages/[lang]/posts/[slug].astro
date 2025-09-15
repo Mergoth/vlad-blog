@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro'
 import { getCollection } from 'astro:content'
+import Reactions from '../../../components/Reactions'
 
 export async function getStaticPaths() {
   const locales = ['en','es','ru'] as const
@@ -76,13 +77,18 @@ const formatDate = (date: Date) => {
       </div>
     </article>
     
+    {/* CASCADE: Reactions UI */}
+    <div class="mt-8">
+      <Reactions client:load lang={lang} slug={`/${lang}/posts/${slug}`} />
+    </div>
+
     <div class="mt-8 text-center">
       <a 
         href={`/${lang}`}
         class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
       >
         <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
         {lang === 'ru' ? 'Назад к блогу' : lang === 'es' ? 'Volver al blog' : 'Back to blog'}
       </a>

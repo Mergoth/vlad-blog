@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header'
+import PushBell from '../components/PushBell'
 
 interface Props {
   title?: string
@@ -45,12 +46,28 @@ const canonical = SITE ? new URL(path, SITE).toString() : undefined
     ))}
     <link rel="alternate" href={canonical ?? path} hreflang="x-default" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {import.meta.env.PROD && import.meta.env.PUBLIC_GA_ID && (
+      <>
+        {/* CASCADE: GA4 basic snippet, enabled only in production when PUBLIC_GA_ID is set */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_ID}`}></script>
+        <script is:inline>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);} 
+          gtag('js', new Date());
+          gtag('config', '${import.meta.env.PUBLIC_GA_ID}', { anonymize_ip: true });
+        `}</script>
+      </>
+    )}
   </head>
   <body class="h-full bg-gray-50">
     <Header lang={lang} client:load />
     <main class="min-h-screen">
       <slot />
     </main>
+    {/* CASCADE: Floating push subscription bell; safe-area aware on mobile */}
+    <div class="fixed z-50 md:bottom-4 md:right-4" style="bottom: calc(env(safe-area-inset-bottom, 0px) + 0.75rem); right: calc(env(safe-area-inset-right, 0px) + 0.75rem);">
+      <PushBell lang={lang} client:load />
+    </div>
     <footer class="bg-white border-t mt-16">
       <div class="max-w-4xl mx-auto px-4 py-8 text-center text-gray-600">
         <p>&copy; 2024 Vlad Blog. Built with Astro & React.</p>
