@@ -3,7 +3,10 @@ import { getStore } from '@netlify/blobs'
 import webpush from 'web-push'
 
 // CASCADE: Broadcast a notification to all saved Push API subscriptions
-const STORE = getStore('push-subscribers')
+function getSubsStore() {
+  // CASCADE_HINT: Lazy init to avoid build-time blobs env requirement
+  return getStore('push-subscribers')
+}
 
 const SUBJECT = process.env.VAPID_CONTACT || 'mailto:admin@example.com'
 const VAPID_PUBLIC = process.env.VAPID_PUBLIC_KEY || ''
@@ -51,13 +54,13 @@ export const POST: APIRoute = async ({ request }) => {
     let cursor: string | undefined = undefined
     do {
       // @ts-ignore list types in blobs
-      const res = await STORE.list({ cursor })
+      const res = await getSubsStore().list({ cursor })
       cursor = res.cursor
       const items: Array<{ key: string }> = res.blobs || res.items || []
 
       for (const item of items) {
         try {
-          const sub = await STORE.get(item.key, { type: 'json' })
+          const sub = await getSubsStore().get(item.key, { type: 'json' })
           if (!sub) continue
           await webpush.sendNotification(sub as any, payload)
           sent++
@@ -67,7 +70,7 @@ export const POST: APIRoute = async ({ request }) => {
           if (statusCode === 404 || statusCode === 410) {
             try {
               // @ts-ignore delete may not be typed
-              await STORE.delete?.(item.key)
+              await getSubsStore().delete?.(item.key)
               removed++
             } catch {}
           } else {

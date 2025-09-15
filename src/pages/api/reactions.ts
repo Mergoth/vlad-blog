@@ -5,7 +5,10 @@ import { getStore } from '@netlify/blobs'
 // Data shape per key: { up: number; down: number; emojis: Record<string, number> }
 
 const STORE_NAME = 'reactions'
-const store = getStore(STORE_NAME)
+function getReactionsStore() {
+  // CASCADE_HINT: Lazy init to avoid build-time blobs env requirement
+  return getStore(STORE_NAME)
+}
 
 function keyFor(slug: string) {
   // CASCADE_HINT: Keep key simple and deterministic
@@ -14,7 +17,7 @@ function keyFor(slug: string) {
 
 async function readCounts(slug: string) {
   const key = keyFor(slug)
-  const raw = await store.get(key, { type: 'json' })
+  const raw = await getReactionsStore().get(key, { type: 'json' })
   if (raw && typeof raw === 'object') {
     return raw as { up: number; down: number; emojis: Record<string, number> }
   }
@@ -23,7 +26,7 @@ async function readCounts(slug: string) {
 
 async function writeCounts(slug: string, data: { up: number; down: number; emojis: Record<string, number> }) {
   const key = keyFor(slug)
-  await store.setJSON(key, data)
+  await getReactionsStore().setJSON(key, data)
 }
 
 export const GET: APIRoute = async ({ url }) => {

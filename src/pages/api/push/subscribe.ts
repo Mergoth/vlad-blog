@@ -2,7 +2,10 @@ import type { APIRoute } from 'astro'
 import { getStore } from '@netlify/blobs'
 
 // CASCADE: Store Push API subscriptions in Netlify Blobs
-const STORE = getStore('push-subscribers')
+function getSubsStore() {
+  // CASCADE_HINT: Lazy init to avoid build-time blobs env requirement
+  return getStore('push-subscribers')
+}
 
 function keyForEndpoint(endpoint: string) {
   // CASCADE_HINT: Keep deterministic key based on endpoint
@@ -16,7 +19,7 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: 'invalid subscription' }), { status: 400 })
     }
     const key = keyForEndpoint(sub.endpoint)
-    await STORE.setJSON(key, sub)
+    await getSubsStore().setJSON(key, sub)
     return new Response(JSON.stringify({ ok: true }), { headers: { 'content-type': 'application/json' } })
   } catch (err) {
     console.error('push subscribe error', err)
@@ -33,7 +36,7 @@ export const DELETE: APIRoute = async ({ request }) => {
     }
     const key = keyForEndpoint(endpoint)
     // @ts-ignore - types may not include delete yet
-    await STORE.delete?.(key)
+    await getSubsStore().delete?.(key)
     return new Response(JSON.stringify({ ok: true }), { headers: { 'content-type': 'application/json' } })
   } catch (err) {
     console.error('push unsubscribe error', err)
