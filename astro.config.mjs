@@ -13,6 +13,7 @@ import { remarkPhotoCarousel } from './src/utils/remark-photo-carousel.mjs';
 export default defineConfig({
   trailingSlash: 'never',
   site: 'https://vlad-blog.netlify.app', // CASCADE: Netlify auto-domain placeholder
+  output: 'server', // CASCADE: enable server output so API endpoints work on Netlify
   adapter: netlify(),
   integrations: [react(), tailwind()],
   markdown: {
