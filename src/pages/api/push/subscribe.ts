@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro'
 import { getStore } from '@netlify/blobs'
 
 // CASCADE: Store Push API subscriptions in Netlify Blobs
+export const prerender = false
 function getSubsStore() {
   // CASCADE_HINT: Lazy init to avoid build-time blobs env requirement
   return getStore('push-subscribers')

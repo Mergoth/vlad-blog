@@ -3,6 +3,7 @@ import { getStore } from '@netlify/blobs'
 import webpush from 'web-push'
 
 // CASCADE: Broadcast a notification to all saved Push API subscriptions
+export const prerender = false
 function getSubsStore() {
   // CASCADE_HINT: Lazy init to avoid build-time blobs env requirement
   return getStore('push-subscribers')

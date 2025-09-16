@@ -4,6 +4,8 @@ import { getStore } from '@netlify/blobs'
 // CASCADE: Minimal reactions API using Netlify Blobs
 // Data shape per key: { up: number; down: number; emojis: Record<string, number> }
 
+export const prerender = false
+
 const STORE_NAME = 'reactions'
 function getReactionsStore() {
   // CASCADE_HINT: Lazy init to avoid build-time blobs env requirement
