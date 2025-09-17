@@ -22,7 +22,7 @@ function getSlugFromProps(slug?: string) {
 export default function Reactions({ slug: slugProp, lang = 'en' }: { slug?: string; lang?: 'en' | 'es' | 'ru' }) {
   const slug = useMemo(() => getSlugFromProps(slugProp), [slugProp])
   const [counts, setCounts] = useState<Counts>({ up: 0, down: 0, emojis: {} })
-  const [voted, setVoted] = useState<Record<string, boolean>>({})
+  const [hasVoted, setHasVoted] = useState<boolean>(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -37,7 +37,7 @@ export default function Reactions({ slug: slugProp, lang = 'en' }: { slug?: stri
     // Load prior votes
     try {
       const raw = localStorage.getItem(lsKey(slug))
-      setVoted(raw ? JSON.parse(raw) : {})
+      setHasVoted(raw === 'true')
     } catch {}
 
     // Fetch counts
@@ -55,28 +55,34 @@ export default function Reactions({ slug: slugProp, lang = 'en' }: { slug?: stri
       .finally(() => setLoading(false))
   }, [slug])
 
-  function rememberVote(key: string) {
+  function rememberVote() {
     try {
-      const next = { ...(voted || {}), [key]: true }
-      setVoted(next)
-      localStorage.setItem(lsKey(slug), JSON.stringify(next))
+      setHasVoted(true)
+      localStorage.setItem(lsKey(slug), 'true')
     } catch {
       // CASCADE_HINT: Ignore storage errors silently
     }
   }
 
   async function send(reaction: string) {
-    if (voted[reaction]) return
+    if (hasVoted) return
     try {
       const r = await fetch('/api/reactions', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ slug, reaction }),
       })
-      if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      if (!r.ok) {
+        if (r.status === 429) {
+          const errorData = await r.json().catch(() => ({}))
+          alert(errorData.message || 'Too many votes. Please try again later.')
+          return
+        }
+        throw new Error(`HTTP ${r.status}`)
+      }
       const data = (await r.json()) as { counts: Counts }
       setCounts({ up: data.counts.up || 0, down: data.counts.down || 0, emojis: data.counts.emojis || {} })
-      rememberVote(reaction)
+      rememberVote()
       // CASCADE_HINT: Optionally emit GA event if present
       if (typeof window !== 'undefined' && (window as any).gtag) {
         ;(window as any).gtag('event', 'reaction', { reaction, slug })
@@ -94,16 +100,16 @@ export default function Reactions({ slug: slugProp, lang = 'en' }: { slug?: stri
     <section aria-labelledby="reactions-title" className="mt-8">
       <h2 id="reactions-title" className="sr-only">{t.title}</h2>
       <div className="flex flex-wrap gap-3 items-center justify-center">
-        <button className={btnBase + (voted['up'] ? ' opacity-60' : '')} onClick={() => send('up')} disabled={!!voted['up']} aria-label={t.up}>
+        <button className={btnBase + (hasVoted ? ' opacity-60' : '')} onClick={() => send('up')} disabled={hasVoted} aria-label={t.up}>
           <span>👍</span>
           <span className={badge}>{counts.up}</span>
         </button>
-        <button className={btnBase + (voted['down'] ? ' opacity-60' : '')} onClick={() => send('down')} disabled={!!voted['down']} aria-label={t.down}>
+        <button className={btnBase + (hasVoted ? ' opacity-60' : '')} onClick={() => send('down')} disabled={hasVoted} aria-label={t.down}>
           <span>👎</span>
           <span className={badge}>{counts.down}</span>
         </button>
         {EMOJIS.map((e) => (
-          <button key={e} className={btnBase + (voted[e] ? ' opacity-60' : '')} onClick={() => send(e)} disabled={!!voted[e]} aria-label={`${t.add} ${e}`}>
+          <button key={e} className={btnBase + (hasVoted ? ' opacity-60' : '')} onClick={() => send(e)} disabled={hasVoted} aria-label={`${t.add} ${e}`}>
             <span>{e}</span>
             <span className={badge}>{counts.emojis?.[e] || 0}</span>
           </button>

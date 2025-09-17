@@ -1,9 +1,9 @@
 import React from 'react'
 
 // CASCADE: Tiny push subscription bell component
-// CASCADE_HINT: Client-side only, uses PUBLIC_VAPID_PUBLIC_KEY
+// CASCADE_HINT: Client-side only, uses VAPID_PUBLIC_KEY
 
-const VAPID = import.meta.env.PUBLIC_VAPID_PUBLIC_KEY as string | undefined
+const VAPID = import.meta.env.VAPID_PUBLIC_KEY as string | undefined
 
 async function urlBase64ToUint8Array(base64String: string) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -30,7 +30,7 @@ async function subscribe(reg: ServiceWorkerRegistration): Promise<PushSubscripti
     const existing = await reg.pushManager.getSubscription()
     if (existing) return existing
     if (!VAPID) {
-      console.warn('CASCADE push: missing PUBLIC_VAPID_PUBLIC_KEY')
+      console.warn('CASCADE push: missing VAPID_PUBLIC_KEY')
       return null
     }
     const sub = await reg.pushManager.subscribe({

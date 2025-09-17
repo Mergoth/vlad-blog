@@ -7,7 +7,9 @@
   # CASCADE: Public GA4 measurement ID passed at build time
   PUBLIC_GA_ID = "G-57N05H2588"
 
-# Edge redirect from root "/" to best locale
+[[plugins]]
+  package = "./plugins/broadcast-new-posts"
+
 [[edge_functions]]
   function = "locale-redirect"
   path = "/"
