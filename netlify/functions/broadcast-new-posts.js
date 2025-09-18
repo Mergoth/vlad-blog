@@ -1,3 +1,42 @@
+// CASCADE: Netlify Function that forwards broadcast requests to our Astro endpoint
+// Usage: POST to /.netlify/functions/broadcast-new-posts with JSON { title, body, url, icon, tag }
+// It will forward to /api/push/broadcast with the PUSH_ADMIN_TOKEN header.
+
+exports.handler = async (event) => {
+  try {
+    if (event.httpMethod !== 'POST') {
+      return { statusCode: 405, body: 'Method not allowed' }
+    }
+
+    const adminToken = process.env.PUSH_ADMIN_TOKEN || ''
+    if (!adminToken) {
+      return { statusCode: 500, body: 'Missing PUSH_ADMIN_TOKEN' }
+    }
+
+    const siteUrl = process.env.URL || process.env.DEPLOY_URL || 'https://vlad-blog.netlify.app'
+    const payload = JSON.parse(event.body || '{}')
+
+    const res = await fetch(`${siteUrl}/api/push/broadcast`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-admin-token': adminToken,
+      },
+      body: JSON.stringify(payload),
+    })
+
+    const text = await res.text()
+    return {
+      statusCode: res.status,
+      headers: { 'content-type': res.headers.get('content-type') || 'application/json' },
+      body: text,
+    }
+  } catch (err) {
+    console.error('CASCADE: forward broadcast error', err)
+    return { statusCode: 500, body: JSON.stringify({ error: 'internal error' }) }
+  }
+}
+
 // CASCADE: Netlify Build Hook - automatically broadcast new posts after deploy
 // This runs during Netlify build process, no GitHub Actions needed
 
