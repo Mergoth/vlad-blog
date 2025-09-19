@@ -50,12 +50,12 @@ const canonical = SITE ? new URL(path, SITE).toString() : undefined
       <>
         {/* CASCADE: GA4 basic snippet, enabled only in production when PUBLIC_GA_ID is set */}
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_ID}`}></script>
-        <script is:inline>{`
+        <script is:inline define:vars={{ GA_ID: import.meta.env.PUBLIC_GA_ID }}>
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);} 
+          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${import.meta.env.PUBLIC_GA_ID}', { anonymize_ip: true });
-        `}</script>
+          gtag('config', GA_ID, { anonymize_ip: true });
+        </script>
       </>
     )}
   </head>
